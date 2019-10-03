@@ -1,0 +1,4 @@
+{
+  "apiUrlV1": "http://localhost:3900/api/v1",
+  "apiUrlV2": "http://localhost:3900/api/v2"
+}
