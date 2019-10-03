@@ -15,6 +15,7 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import auth from '../../service/authService';
 
 import Table from '../common/Table';
 
@@ -22,7 +23,7 @@ class PrgramTable extends Component {
   columns = [
     {
       path: 'name',
-      label: 'Name',
+      label: 'Prgram Name',
       content: program => (
         <Link to={`/programs/${program._id}`}>{program.name}</Link>
       )
@@ -34,19 +35,19 @@ class PrgramTable extends Component {
     content: program => (
       <button
         onclick={() => this.props.onDelete(program)}
-        className='btn btn-dangerbtn-sm'
+        className='btn btn-danger btn-sm'
       >
         Delete
       </button>
     )
   };
 
-  // constructor() {
-  //   super();
-  //   const user = auth.getCurrentUser();
-  //   // if (user && user.isAdmin) this.columns.push(this.deleteColumn); // role checking
-  //   if (user) this.columns.push(this.deleteColumn);
-  // }
+  constructor() {
+    super();
+    const user = auth.getCurrentUser();
+    // if (user && user.isAdmin) this.columns.push(this.deleteColumn); // role checking
+    if (user) this.columns.push(this.deleteColumn);
+  }
 
   render() {
     const { programs, onSort, sortColumn } = this.props;

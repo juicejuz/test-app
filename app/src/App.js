@@ -25,6 +25,7 @@ import Logout from './components/auth/Logout';
 import Programs from './components/program/Programs';
 import ProgramForm from './components/program/ProgramForm';
 import NotFound from './components/common/NotFound';
+import PrivateRoute from './components/common/ProtectedRoute';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -43,10 +44,10 @@ class App extends Component {
         <NavBar user={user} />
         <main className='container'>
           <Switch>
-            <Route exact path='/programs' component={Programs} />
+            <PrivateRoute exact path='/programs' component={Programs} />
             <Route exact path='/login' component={LoginForm} />
-            <Route path='/logout' component={Logout} />
-            <Route exact path='/program' component={ProgramForm} />
+            <PrivateRoute path='/logout' component={Logout} />
+            <PrivateRoute exact path='/program' component={ProgramForm} />
             <Route path='/not-found' component={NotFound} />
             <Redirect from='/' exact to='/login' />
             <Redirect to='/not-found' />

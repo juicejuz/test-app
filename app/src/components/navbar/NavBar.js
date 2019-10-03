@@ -22,23 +22,24 @@ const NavBar = ({ user }) => {
       <Link className='navbar-brand' to='/'>
         D.A.V.E.-DB
       </Link>
-      <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
-        <div className='navbar-nav'>
-          {!user && (
-            <React.Fragment>
-              <NavLink className='nav-item nav-link' to='/login'>
-                Login
-              </NavLink>
-            </React.Fragment>
+      <div className='navbar-nav'>
+        <ul className='navbar-nav mr-auto'>
+          {user && (
+            <NavLink className='nav-item nav-link' to='/programs'>
+              Programs
+            </NavLink>
           )}
           {user && (
             <React.Fragment>
+              <NavLink className='nav-item nav-link' to='/'>
+                Hello {user.name}
+              </NavLink>
               <NavLink className='nav-item nav-link' to='/logout'>
                 Logout
               </NavLink>
             </React.Fragment>
           )}
-        </div>
+        </ul>
       </div>
     </nav>
   );
