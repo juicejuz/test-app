@@ -19,11 +19,11 @@ import auth from '../../service/authService';
 
 import Table from '../common/Table';
 
-class PrgramTable extends Component {
+class ProgramTable extends Component {
   columns = [
     {
       path: 'name',
-      label: 'Prgram Name',
+      label: 'Program Name',
       content: program => (
         <Link to={`/edit_program/${program._id}`}>{program.name}</Link>
       )
@@ -62,4 +62,4 @@ class PrgramTable extends Component {
   }
 }
 
-export default PrgramTable;
+export default ProgramTable;

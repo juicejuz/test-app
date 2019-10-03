@@ -32,7 +32,7 @@ const NavBar = ({ user }) => {
           {user && (
             <React.Fragment>
               <NavLink className='nav-item nav-link' to='/'>
-                Hello {user.name}
+                Hello, {user.name}
               </NavLink>
               <NavLink className='nav-item nav-link' to='/logout'>
                 Logout
