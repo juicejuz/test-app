@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/*
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ */
+
 import React, { Component } from 'react';
 
 class TableHeader extends Component {

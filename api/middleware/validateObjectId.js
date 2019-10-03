@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/*
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ */
+
 const mongoose = require('mongoose');
 
 module.exports = function(req, res, next) {

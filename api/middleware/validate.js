@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/*
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ */
+
 module.exports = validator => {
   return (req, res, next) => {
     const { error } = validator(req.body);

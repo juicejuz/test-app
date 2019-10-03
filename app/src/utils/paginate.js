@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/*
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ */
+
 import _ from 'lodash';
 
 export function paginate(items, pageNumber, pageSize) {

@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/*
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ */
+
 import { Component } from 'react';
 import auth from '../../service/authService';
 

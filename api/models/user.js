@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/*
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ */
+
 const config = require('config');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');

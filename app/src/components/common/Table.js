@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/*
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ */
+
 import React from 'react';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';

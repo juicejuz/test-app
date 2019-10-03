@@ -11,6 +11,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# * --------------------------------------------------------------------------------
+# * Description:
+# * --------------------------------------------------------------------------------
+
+
 FROM oavkdtv/centos-node:1.0.0
 WORKDIR /node
 COPY . .

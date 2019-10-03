@@ -9,20 +9,20 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
+# limitations under the License.
 
 # * --------------------------------------------------------------------------------
 # * Description:
 # * --------------------------------------------------------------------------------
- 
-version: '3.7'
 
-services:
-  api:
-    image: davedb-api
-    ports:
-      - '3900:3900'
-    networks:
-      - network
-
-networks:
-  network:
+FROM oavkdtv/centos-node:1.0.0
+WORKDIR /node
+COPY . .
+RUN npm config list \
+  && npm ci --only=production \
+  && npm install --only=development \
+  && npm cache clean --force \
+  && npm run build
+WORKDIR /node/build
+EXPOSE 3000
+CMD ["npm", "run", "start"]

@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/*
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ */
+
 import jwtDecode from 'jwt-decode';
 import http from './httpService';
 import { apiUrlV1 } from './config.json';

@@ -1,68 +1,163 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!--
+* Copyright 2019 OpenAdvice & Vodafone SM-4.0_TV
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*    http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+-->
 
-## Available Scripts
+<!-->
+ * --------------------------------------------------------------------------------
+ * Description:
+ * --------------------------------------------------------------------------------
+ -->
 
-In the project directory, you can run:
+# D.A.V.E.-DB React-WebApp
 
-### `npm start`
+> WebApp UI for D.A.V.E.-DB
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> ideally one sentence
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+> include terms/tags that can be searched
 
-### `npm test`
+TODO: Write a project description
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- https://shields.io/ -->
 
-### `npm run build`
+![GitHub](https://img.shields.io/cirrus/github/oavkdtv/davedb-app/master)
+![Version](https://img.shields.io/github/package-json/v/oavkdtv/davedb-app)
+![Dependencies](https://img.shields.io/librariesio/github/oavkdtv/davedb-app)
+![Coverage](https://img.shields.io/github/languages/top/oavkdtv/davedv-app)
+![Size](https://img.shields.io/github/repo-size/oavkdtv/davedb-app)
+![Activity](https://img.shields.io/github/release-date/oavkdtv/davedb-app)
+![Activity](https://img.shields.io/github/last-commit/oavkdtv/davedb-app)
+![Downloads](https://img.shields.io/github/downloads/oavkdtv/davedb-app/total)
+![LICENCE](https://img.shields.io/github/license/oavkdtv/davedb-app)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Table of Contents
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [Team](#team)
+- [FAQ](#faq)
+- [Support](#support)
+- [License](#license)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Example
 
-### `npm run eject`
+```javascript
+// code away!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+let generateProject = project => {
+  let code = [];
+  for (let js = 0; js < project.length; js++) {
+    code.push(js);
+  }
+};
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Installation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- All the `code` required to get started
+- Images of what it should look like
 
-## Learn More
+### Clone
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Clone this repo to your local machine using `https://github.com/oavdktv/davedb.app.git`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Setup
 
-### Code Splitting
+- If you want more syntax highlighting, format your code like this:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+> update and install this package first
 
-### Analyzing the Bundle Size
+```shell
+$ brew update
+$ brew install fvcproductions
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+> now install npm packages
 
-### Making a Progressive Web App
+```shell
+$ npm install
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 
-### Advanced Configuration
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Usage
 
-### Deployment
+TODO: Write usage instructions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Features
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Contributing
+
+> To get started... \* ADD Commenting rules
+
+### Step 1
+
+- **Option 1**
+
+  - 🍴 Fork this repo!
+
+- **Option 2**
+  - `cd toyourprojectdirectory`
+  - `git init`
+  - 👯 Clone this repo to your local machine using `git pull -v https://github.com/oavkdtv/davedb-app.git`
+
+### Step 2
+
+- **HACK AWAY!** 🔨🔨🔨
+
+### Step 3
+
+- 🔃 Create a new pull request using <a href="https://github.com/oavdktv/davedb.app.git" target="_blank">`https://github.com/oavdktv/davedb.app.git`</a>.
+
+---
+
+## Team
+
+- <a href="https://github.com/Dom137" target="_blank">Dom137</a>
+- <a href="https://github.com/juicejuz" target="_blank">juicejuz</a>
+- <a href="https://github.com/tobwetzel" target="_blank">tobwetzel</a>
+- <a href="https://github.com/vitalede" target="_blank">vitalede</a>
+- <a href="https://github.com/calfano2812" target="_blank">calfano2812</a>
+
+---
+
+## FAQ
+
+- **How do I do _specifically_ so and so?**
+  - No problem! Just do this.
+
+---
+
+## Support
+
+Reach out to me at one of the following places!
+
+- Website at <a href="https://github.com/oavdktv/davedb.app.git" target="_blank">`OaVkdTV`</a>
+
+---
+
+## License
+
+![LICENCE](https://img.shields.io/github/license/oavkdtv/davedb-app)
+
+- **[Apache license](http://www.apache.org/licenses/LICENSE-2.0)**
+- Copyright 2019 © <a href="https://github.com/oavdktv/davedb.api.git" target="_blank">OaVkdTV</a>.

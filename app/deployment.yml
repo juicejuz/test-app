@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dave-db-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dave-db-app
+  template:
+    metadata:
+      labels:
+        app: dave-db-app
+    spec:
+      containers:
+      - name: dave-db-app
+        image: us.icr.io/dave-db/dave-db-app-kube:<tag>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dave-db-app-service
+spec:
+  selector:
+    app: dave-db-app
+  ports:
+    - protocol: TCP
+      port: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dave-db-ingress
+spec:
+  tls:
+  - hosts:
+    - dave-db-app.eu-de.containers.appdomain.cloud
+  rules:
+  - host: dave-db-app.eu-de.containers.appdomain.cloud
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: dave-db-app-service
+          servicePort: 8080
