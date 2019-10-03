@@ -16,11 +16,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import _ from 'lodash';
 import ProgramTable from './ProgramTable';
 import Pagination from '../common/Pagination';
 import { getPrograms, deleteProgram } from '../../service/programService';
 import { paginate } from '../../utils/paginate';
-import _ from 'lodash';
 import SearchBox from '../common/SearchBox';
 
 class Programs extends Component {
@@ -99,7 +99,7 @@ class Programs extends Component {
         <div className='col'>
           {user && (
             <Link
-              to='/program'
+              to='/add_program'
               className='btn btn-primary'
               style={{ marginBottom: 20 }}
             >

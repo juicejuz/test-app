@@ -51,7 +51,11 @@ class App extends Component {
             />
             <Route exact path='/login' component={LoginForm} />
             <ProtectedRoute path='/logout' component={Logout} />
-            <ProtectedRoute exact path='/program' component={ProgramForm} />
+            <ProtectedRoute
+              exact
+              path='/add_program/'
+              component={ProgramForm}
+            />
             <Route path='/not-found' component={NotFound} />
             <Redirect from='/' exact to='/login' />
             <Redirect to='/not-found' />

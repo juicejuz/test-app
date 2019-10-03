@@ -25,7 +25,7 @@ class PrgramTable extends Component {
       path: 'name',
       label: 'Prgram Name',
       content: program => (
-        <Link to={`/programs/${program._id}`}>{program.name}</Link>
+        <Link to={`/add_program/${program._id}`}>{program.name}</Link>
       )
     }
   ];
