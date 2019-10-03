@@ -22,7 +22,7 @@ const NavBar = ({ user }) => {
       <Link className='navbar-brand' to='/'>
         D.A.V.E.-DB
       </Link>
-      <div className='navbar-nav'>
+      <div className='navbar-nav navbar-expand-lg'>
         <ul className='navbar-nav mr-auto'>
           {user && (
             <NavLink className='nav-item nav-link' to='/programs'>
