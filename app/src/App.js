@@ -44,7 +44,6 @@ class App extends Component {
         <NavBar user={user} />
         <main className='container'>
           <Switch>
-            {/* <ProtectedRoute exact path='/programs' component={Programs} /> */}
             <ProtectedRoute
               path='/programs'
               render={props => <Programs {...props} user={this.state.user} />}

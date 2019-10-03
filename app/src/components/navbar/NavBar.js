@@ -18,7 +18,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = ({ user }) => {
   return (
-    <nav class='navbar navbar-dark bg-dark'>
+    <nav className='navbar navbar-dark bg-dark'>
       <Link className='navbar-brand' to='/'>
         D.A.V.E.-DB
       </Link>
