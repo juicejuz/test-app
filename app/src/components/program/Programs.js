@@ -96,13 +96,6 @@ class Programs extends Component {
     const { totalCount, data: programs } = this.getPagedData();
     return (
       <div className='row'>
-        {/* <div className="col-3">
-          <ListGroup
-            items={this.state.programs}
-            selectedItem={this.state.selectedGenre}
-            onItemSelect={this.handleGenreSelect}
-          />
-        </div> */}
         <div className='col'>
           {user && (
             <Link

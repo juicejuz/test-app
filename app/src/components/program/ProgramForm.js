@@ -16,6 +16,7 @@
 import React from 'react';
 import Joi from 'joi-browser';
 import Form from '../common/Form';
+import { toast } from 'react-toastify';
 
 import { getProgram, saveProgram } from '../../service/programService';
 
@@ -43,7 +44,7 @@ class ProgramForm extends Form {
       this.setState({ data: this.mapToViewModel(program) });
     } catch (ex) {
       if (ex.response && ex.response.status === 404)
-        this.props.history.replace('not-found');
+        this.props.history.replace('/not-found');
     }
   }
 
@@ -60,8 +61,9 @@ class ProgramForm extends Form {
 
   doSubmit = async () => {
     await saveProgram(this.state.data);
+    toast.success(`${this.state.data.name} created`);
 
-    this.props.history.push('/program');
+    this.props.history.push('/programs');
   };
 
   render() {

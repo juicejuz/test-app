@@ -47,7 +47,7 @@ class App extends Component {
             <PrivateRoute exact path='/programs' component={Programs} />
             <Route exact path='/login' component={LoginForm} />
             <PrivateRoute path='/logout' component={Logout} />
-            <PrivateRoute exact path='/program' component={ProgramForm} />
+            <PrivateRoute exact path='/programs/:id' component={ProgramForm} />
             <Route path='/not-found' component={NotFound} />
             <Redirect from='/' exact to='/login' />
             <Redirect to='/not-found' />
