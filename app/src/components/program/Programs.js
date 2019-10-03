@@ -69,7 +69,6 @@ class Programs extends Component {
       pageSize,
       currentPage,
       sortColumn,
-      //   selectedGenre,
       searchQuery,
       programs: allPrograms
     } = this.state;
@@ -79,8 +78,6 @@ class Programs extends Component {
       filtered = allPrograms.filter(p =>
         p.name.toLowerCase().startsWith(searchQuery.toLowerCase())
       );
-    // else if (selectedGenre && selectedGenre._id)
-    //   filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
