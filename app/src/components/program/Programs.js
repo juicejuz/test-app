@@ -99,7 +99,7 @@ class Programs extends Component {
         <div className='col'>
           {user && (
             <Link
-              to='/programs/new'
+              to='/program'
               className='btn btn-primary'
               style={{ marginBottom: 20 }}
             >
