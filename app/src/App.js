@@ -48,6 +48,7 @@ class App extends Component {
             <Route path='/logout' component={Logout} />
             <Route exact path='/program' component={ProgramForm} />
             <Route path='/not-found' component={NotFound} />
+            <Redirect from='/' exact to='/login' />
             <Redirect to='/not-found' />
           </Switch>
         </main>
