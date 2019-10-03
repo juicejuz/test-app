@@ -34,7 +34,7 @@ class PrgramTable extends Component {
     key: 'delete',
     content: program => (
       <button
-        onclick={() => this.props.onDelete(program)}
+        onClick={() => this.props.onDelete(program)}
         className='btn btn-danger btn-sm'
       >
         Delete
