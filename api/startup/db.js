@@ -23,7 +23,19 @@ const winston = require('winston');
 const mongoose = require('mongoose');
 const config = require('config');
 
-module.exports = function() {
-  const db = config.get('db');
-  mongoose.connect(db).then(() => winston.info(`Connected to ${db}...`));
+module.exports = async () => {
+  const db = process.env.DATABASE || config.get('db');
+  try {
+    await mongoose.connect(db, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true
+    });
+    // winston.info(`Connected to ${db}...`);
+    winston.info('Connected to db...');
+  } catch (err) {
+    winston.error(err.message);
+    process.exit(1);
+  }
 };
