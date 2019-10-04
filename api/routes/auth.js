@@ -15,11 +15,11 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description:
+ * Description: Login Route to Authentificatinon on BE Application
+ *              - response 400 If User/Passwd
  * --------------------------------------------------------------------------------
  */
 
-const Joi = require('joi');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const { User } = require('../models/user');
@@ -27,8 +27,10 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 
+const { validateLogin } = require('../models/user');
+
 router.post('/', async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validateLogin(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
   let user = await User.findOne({ email: req.body.email });
@@ -40,21 +42,5 @@ router.post('/', async (req, res) => {
   const token = user.generateAuthToken();
   res.send(token);
 });
-
-function validate(req) {
-  const schema = {
-    email: Joi.string()
-      .min(5)
-      .max(255)
-      .required()
-      .email(),
-    password: Joi.string()
-      .min(5)
-      .max(255)
-      .required()
-  };
-
-  return Joi.validate(req, schema);
-}
 
 module.exports = router;

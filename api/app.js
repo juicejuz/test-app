@@ -15,7 +15,8 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description:
+ * Description: Main EntryPoint to Backend Application
+ *        TODO: Add Environment Checking via config.js
  * --------------------------------------------------------------------------------
  */
 
@@ -32,10 +33,8 @@ require('./startup/config')();
 require('./startup/validation')();
 
 const port = process.env.PORT || config.get('port');
-const server = app.listen(
-  port,
-  () => winston.info(`Listening on port ${port}...`)
-  // console.log(`Listening on port ${port}...`)
+const server = app.listen(port, () =>
+  winston.info(`Listening on port ${port}...`)
 );
 
 module.exports = server;

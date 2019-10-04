@@ -47,6 +47,7 @@ class Programs extends Component {
     const originalPrograms = this.state.programs;
     const programs = originalPrograms.filter(p => p._id !== program._id);
     this.setState({ programs });
+    toast.success('Program deleted');
 
     try {
       await deleteProgram(program._id);

@@ -15,7 +15,9 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description:
+ * Description: CRUD Module for Programs
+ *              data only accassable via ReST-API
+ *        TODO: ADD Logging IMPORTANT!!
  * --------------------------------------------------------------------------------
  */
 

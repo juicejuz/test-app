@@ -15,7 +15,8 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description:
+ * Description: Used for Cors between FE port: 3000 and BE port:3900
+ *              (JavaScript: different port = different Origin)
  * --------------------------------------------------------------------------------
  */
 

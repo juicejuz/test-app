@@ -15,7 +15,7 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description:
+ * Description: TODO: Generic Logging Module for Instantiating different Transports for Log & EventSource
  * --------------------------------------------------------------------------------
  */
 
@@ -33,7 +33,7 @@ module.exports = function() {
     throw ex;
   });
 
-  // winston.add(winston.transports.File, { filename: 'logfile.log' });
+  winston.add(winston.transports.File, { filename: 'logfile.log' });
   // winston.add(winston.transports.MongoDB, {
   //   db: 'mongodb://localhost/davedb',
   //   level: 'info'
