@@ -33,7 +33,7 @@ module.exports = function() {
     throw ex;
   });
 
-  winston.add(winston.transports.File, { filename: 'logfile.log' });
+  winston.add(new winston.transports.Console());
   // winston.add(winston.transports.MongoDB, {
   //   db: 'mongodb://localhost/davedb',
   //   level: 'info'
