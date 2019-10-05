@@ -2,5 +2,5 @@
   "jwtPrivateKey": "unsecureKey",
   "db": "mongodb+srv://oavkdtv123:oavkdtv123@fakedavedb-qppco.mongodb.net/test?retryWrites=true&w=majority",
   "port": "3900",
-  "requiresAuth": true
+  "requiresAuth": false
 }
