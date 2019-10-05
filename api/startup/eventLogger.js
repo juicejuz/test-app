@@ -30,7 +30,7 @@ module.exports = winston.createLogger({
   transports: [
     new winston.transports.MongoDB({
       db: process.env.DATABASE || config.get('db'),
-      collection: 'eventLogger',
+      collection: 'eventloggers',
       storeHost: true,
       options: {
         useNewUrlParser: true,

@@ -15,18 +15,14 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description: Main File for Creating URLs & importing Moule
+ * Description: TODO
  * --------------------------------------------------------------------------------
  */
 
-const express = require('express');
-const error = require('../middleware/error');
+const mongoose = require('mongoose');
 
-module.exports = function(app) {
-  app.use(express.json());
-  app.use('/api/v1/auth', require('../routes/auth'));
-  app.use('/api/v1/programs', require('../routes/programs'));
-  app.use('/api/v1/compression', require('../routes/compressions'));
-  app.use('/api/v1/event-logger', require('../routes/eventLoggers'));
-  app.use(error);
-};
+const eventLoggerSchema = new mongoose.Schema({});
+
+const EventLogger = mongoose.model('EventLogger', eventLoggerSchema);
+
+exports.EventLogger = EventLogger;

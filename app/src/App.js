@@ -30,6 +30,7 @@ import LoginForm from './components/auth/LoginForm';
 import Logout from './components/auth/Logout';
 import Programs from './components/program/Programs';
 import ProgramForm from './components/program/ProgramForm';
+import EventLogger from './components/eventLogger/EventLogger';
 import NotFound from './components/common/NotFound';
 import ProtectedRoute from './components/common/ProtectedRoute';
 
@@ -66,6 +67,7 @@ class App extends Component {
               path='/edit_program/:id'
               component={ProgramForm}
             />
+            <ProtectedRoute path='/event-logger' component={EventLogger} />
             <Route path='/not-found' component={NotFound} />
             <Redirect from='/' exact to='/login' />
             <Redirect to='/not-found' />

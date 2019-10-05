@@ -15,18 +15,18 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description: Main File for Creating URLs & importing Moule
+ * Description: TODO
  * --------------------------------------------------------------------------------
  */
 
 const express = require('express');
-const error = require('../middleware/error');
+const router = express.Router();
 
-module.exports = function(app) {
-  app.use(express.json());
-  app.use('/api/v1/auth', require('../routes/auth'));
-  app.use('/api/v1/programs', require('../routes/programs'));
-  app.use('/api/v1/compression', require('../routes/compressions'));
-  app.use('/api/v1/event-logger', require('../routes/eventLoggers'));
-  app.use(error);
-};
+const { EventLogger } = require('../models/eventLoggger');
+
+router.get('/', async (req, res) => {
+  const eventLogger = await EventLogger.find().sort('timestamp');
+  res.send(eventLogger);
+});
+
+module.exports = router;

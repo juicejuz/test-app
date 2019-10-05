@@ -90,7 +90,6 @@ router.delete('/:id', auth, validateObjectId, async (req, res) => {
     req.header('x-auth-token'),
     process.env.JWT_PRIVATE_KEY || config.get('jwtPrivateKey')
   );
-  console.log(program);
   eventLogger.info(
     `NAME: ${decoded.name}, ${req.method}: ${program}, URL: ${req.baseUrl}, HOST: ${req.headers.origin}`
   );

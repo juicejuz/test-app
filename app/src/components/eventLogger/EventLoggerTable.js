@@ -15,18 +15,34 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description: Main File for Creating URLs & importing Moule
+ * Description: Shows all Program data in a Tabel
  * --------------------------------------------------------------------------------
  */
 
-const express = require('express');
-const error = require('../middleware/error');
+import React, { Component } from 'react';
 
-module.exports = function(app) {
-  app.use(express.json());
-  app.use('/api/v1/auth', require('../routes/auth'));
-  app.use('/api/v1/programs', require('../routes/programs'));
-  app.use('/api/v1/compression', require('../routes/compressions'));
-  app.use('/api/v1/event-logger', require('../routes/eventLoggers'));
-  app.use(error);
-};
+import Table from '../common/Table';
+
+class ProgramTable extends Component {
+  columns = [
+    {
+      path: 'timestamp',
+      label: 'TimeStamp'
+    },
+    { path: 'message', label: 'Message' }
+  ];
+
+  render() {
+    const { eventLogger, onSort, sortColumn } = this.props;
+    return (
+      <Table
+        columns={this.columns}
+        data={eventLogger}
+        sortColumn={sortColumn}
+        onSort={onSort}
+      />
+    );
+  }
+}
+
+export default ProgramTable;
