@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <Fragment>
         <ToastContainer />
-        <NavBar user={user} />
+        {user && <NavBar user={user} />}
         <main className='container'>
           <Switch>
             <ProtectedRoute

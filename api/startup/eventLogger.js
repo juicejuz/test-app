@@ -15,26 +15,27 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description: TODO: Modernyze to Async TryCatch
+ * Description: EnventLogger!
+ *              - any Update Event (PUT) log to DB
+ *              - any Delete Event (DELETE) log to DB
  * --------------------------------------------------------------------------------
  */
 
 const winston = require('winston');
-const mongoose = require('mongoose');
 const config = require('config');
+require('winston-mongodb');
+require('express-async-errors');
 
-module.exports = async () => {
-  const db = process.env.DATABASE || config.get('db');
-  try {
-    await mongoose.connect(db, {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-      useUnifiedTopology: true
-    });
-    winston.info('Connected to db...');
-  } catch (err) {
-    winston.error(err.message);
-    process.exit(1);
-  }
-};
+module.exports = winston.createLogger({
+  transports: [
+    new winston.transports.MongoDB({
+      db: process.env.DATABASE || config.get('db'),
+      collection: 'eventLogger',
+      storeHost: true,
+      options: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }
+    })
+  ]
+});

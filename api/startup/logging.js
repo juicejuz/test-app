@@ -15,27 +15,35 @@
 
 /*
  * --------------------------------------------------------------------------------
- * Description: TODO: Generic Logging Module for Instantiating different Transports for Log & EventSource
+ * Description: Logging Module used for the follow logRules:
+ *              - any Exception (<= 400) log to DB & Console
+ *              - any UncaughtException (<= 500) log to Console
  * --------------------------------------------------------------------------------
  */
 
 const winston = require('winston');
-// require('winston-mongodb');
+const config = require('config');
+require('winston-mongodb');
 require('express-async-errors');
 
 module.exports = function() {
-  winston.handleExceptions(
-    new winston.transports.Console({ colorize: true, prettyPrint: true }),
-    new winston.transports.File({ filename: 'uncaughtExceptions.log' })
-  );
+  winston.exceptions.handle(new winston.transports.Console({}));
 
   process.on('unhandledRejection', ex => {
     throw ex;
   });
 
-  winston.add(new winston.transports.Console());
-  // winston.add(winston.transports.MongoDB, {
-  //   db: 'mongodb://localhost/davedb',
-  //   level: 'info'
-  // });
+  winston.add(new winston.transports.Console({}));
+
+  winston.add(
+    new winston.transports.MongoDB({
+      db: process.env.DATABASE || config.get('db'),
+      collection: 'logging',
+      storeHost: true,
+      options: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }
+    })
+  );
 };

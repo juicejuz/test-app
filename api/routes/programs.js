@@ -23,17 +23,23 @@
 
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
+const config = require('config');
 const validateObjectId = require('../middleware/validateObjectId');
 
 const { Program, validate } = require('../models/program');
 
-router.get('/', async (req, res) => {
+const auth = require('../middleware/auth');
+
+const eventLogger = require('../startup/eventLogger');
+
+router.get('/', auth, async (req, res) => {
   const programs = await Program.find().sort('name');
 
   res.send(programs);
 });
 
-router.get('/:id', validateObjectId, async (req, res) => {
+router.get('/:id', auth, validateObjectId, async (req, res) => {
   const program = await Program.findById(req.params.id);
 
   if (!program) return res.status(404).send('Program not exist');
@@ -41,7 +47,7 @@ router.get('/:id', validateObjectId, async (req, res) => {
   res.send(program);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -51,7 +57,7 @@ router.post('/', async (req, res) => {
   res.send(program);
 });
 
-router.put('/:id', validateObjectId, async (req, res) => {
+router.put('/:id', auth, validateObjectId, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -63,14 +69,31 @@ router.put('/:id', validateObjectId, async (req, res) => {
 
   if (!program) return res.status(404).send('Program not exist');
 
+  const decoded = jwt.verify(
+    req.header('x-auth-token'),
+    config.get('jwtPrivateKey')
+  );
+  // TODO: MAKE SERVICE OUT OF DECODE
+  eventLogger.info(
+    `NAME: ${decoded.name}, ${req.method}: ${program}, URL: ${req.baseUrl}, HOST: ${req.headers.origin}`
+  );
+
   res.send(program);
 });
 
-router.delete('/:id', validateObjectId, async (req, res) => {
+router.delete('/:id', auth, validateObjectId, async (req, res) => {
   const program = await Program.findByIdAndRemove(req.params.id);
 
   if (!program) return res.status(404).send('Program not exists');
-
+  // TODO: MAKE SERVICE OUT OF DECODE
+  const decoded = jwt.verify(
+    req.header('x-auth-token'),
+    process.env.JWT_PRIVATE_KEY || config.get('jwtPrivateKey')
+  );
+  console.log(program);
+  eventLogger.info(
+    `NAME: ${decoded.name}, ${req.method}: ${program}, URL: ${req.baseUrl}, HOST: ${req.headers.origin}`
+  );
   res.send(program);
 });
 
