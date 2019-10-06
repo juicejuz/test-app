@@ -71,12 +71,15 @@ router.put('/:id', auth, validateObjectId, async (req, res) => {
 
   const decoded = jwt.verify(
     req.header('x-auth-token'),
-    config.get('jwtPrivateKey')
+    process.env.JWT_PRIVATE_KEY || config.get('jwtPrivateKey')
   );
+
+  /******* Event Logging System *******/
   // TODO: MAKE SERVICE OUT OF DECODE
   eventLogger.info(
-    `NAME: ${decoded.name}, ${req.method}: ${program}, URL: ${req.baseUrl}, HOST: ${req.headers.origin}`
+    `${program.name}, ${req.method}, ${req.baseUrl}, ${decoded.name}, ${req.headers.origin}, ${program}`
   );
+  /************************/
 
   res.send(program);
 });
@@ -85,14 +88,18 @@ router.delete('/:id', auth, validateObjectId, async (req, res) => {
   const program = await Program.findByIdAndRemove(req.params.id);
 
   if (!program) return res.status(404).send('Program not exists');
+
+  /******* Event Logging System *******/
   // TODO: MAKE SERVICE OUT OF DECODE
   const decoded = jwt.verify(
     req.header('x-auth-token'),
     process.env.JWT_PRIVATE_KEY || config.get('jwtPrivateKey')
   );
   eventLogger.info(
-    `NAME: ${decoded.name}, ${req.method}: ${program}, URL: ${req.baseUrl}, HOST: ${req.headers.origin}`
+    `${program.name}, ${req.method}, ${req.baseUrl}, ${decoded.name}, ${req.headers.origin}, ${program}`
   );
+  /************************/
+
   res.send(program);
 });
 

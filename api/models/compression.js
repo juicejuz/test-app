@@ -44,20 +44,70 @@ const compressionSchema = new mongoose.Schema({
     maxlength: 20,
     unique: true
   },
-  locations: [String],
-  submatrix: [submatrixSchema]
+  locations: String,
+  nmxServer: {
+    vSip: String,
+    nmx: [
+      {
+        name: {
+          type: String
+        },
+        mgmtIp: {
+          type: String
+        }
+      }
+    ]
+  },
+  mux: [
+    {
+      name: {
+        type: String
+      },
+      mgmtIp: {
+        type: String
+      },
+      pairNo: {
+        type: String
+      },
+      encoder: [
+        {
+          name: {
+            type: String
+          },
+          mgmtIp: {
+            type: String
+          }
+        }
+      ],
+      submatrix: [
+        {
+          port: {
+            type: String,
+            required: true,
+            minlength: 1,
+            maxlength: 5
+          },
+          program: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'programSchema',
+            required: true
+          }
+        }
+      ]
+    }
+  ]
 });
 
 const Compression = mongoose.model('Compression', compressionSchema);
 
 function validateCompression(service) {
-  const submatrixSchema = {
-    port: Joi.string()
-      .min(1)
-      .max(20)
-      .required(),
-    service: Joi.ref().required()
-  };
+  // const submatrixSchema = {
+  //   port: Joi.string()
+  //     .min(1)
+  //     .max(20)
+  //     .required(),
+  //   service: Joi.ref().required()
+  // };
 
   const compressionSchema = {
     block: Joi.string()

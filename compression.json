@@ -1,0 +1,32 @@
+{
+  "block": "String",
+  "location": "String",
+  "nmxServer": {
+    "vSip": "String",
+    "nmx": [
+      {
+        "name": "String",
+        "mgmtIp": "String"
+      }
+    ]
+  },
+  "mux": [
+    {
+      "name": "String",
+      "mgmtIp": "String",
+      "pairNo": "String",
+      "encoder": [
+        {
+          "name": "String",
+          "mgmtIp": "String"
+        }
+      ],
+      "submatrix": [
+        {
+          "port": "String",
+          "program": "ObjectId"
+        }
+      ]
+    }
+  ]
+}
