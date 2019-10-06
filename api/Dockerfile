@@ -17,6 +17,17 @@
 
 
 FROM oavkdtv/centos-node:1.0.0
+
+ARG CREATED_DATE=not-set
+ARG SOURCE_COMMIT=not-set
+
+LABEL org.opencontainers.image.authors=oavkdtv@gmail.com
+LABEL org.opencontainers.image.created=$CREATED_DATE
+LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
+LABEL org.opencontainers.image.title="davedb-api"
+LABEL org.opencontainers.image.url=https://hub.docker.com/r/oavkdtv/davedb-api
+LABEL org.opencontainers.image.licenses=Apache2.0
+
 WORKDIR /node
 COPY . .
 RUN npm config list \
